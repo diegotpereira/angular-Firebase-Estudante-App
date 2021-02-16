@@ -1,1 +1,41 @@
-<p>add-estudante works!</p>
+<div class="pt-3 pb-2 mb-3 border-button">
+    <h1 class="h2">Novo Estudante</h1>
+    <p class="custom-text">Aplicação CRUD <strong>sistema de gerenciamento de registro de estudante</strong><strong>Angular 11 e Firebase</strong></p>
+</div>
+<!--Formulario Estudante-->
+<form [formGroup]="estudanteForm" (ngSubmit)="submitEstudanteData()" novalidate>
+    <div class="row">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label>Nome</label>
+                    <input type="text" formControlName="nome" class="form-control" required>
+                    <p *ngIf="nome.touched && nome.invalid" class="error"><sup>*</sup>Por favor insira pelo menos o primeiro nome</p>
+                    <p *ngIf="nome.errors?.minlength" class="error"><sup>*</sup>Nome não de conter menos que duas palavras</p>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>Sobrenome</label>
+                    <input type="text" formControlName="sobrenome" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label>E-mail</label>
+                    <input type="email" formControlName="email" class="form-control" required>
+                    <p *ngIf="email.touched && email.invalid" class="error"><sup>*</sup>Por favor forneça um e-mail válido!</p>
+                    <p *ngIf="email.errors?.pattern" class="error"><sup>*</sup>Por favor entre com e-mail correto!</p>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>Telefone</label>
+                    <input type="text" formControlName="telefone" class="form-control" required>
+                    <p *ngIf="telefone.touched && telefone.invalid" class="error"><sup>*</sup>Por favor forneça um contato!</p>
+                    <p *ngIf="telefone.errors?.pattern" class="error"><sup>*</sup>Por favor use apenas números!</p>
+                </div>
+            </div>
+            <div class="form-group text-rigth">
+                <button type="button" class="btn btn-secundary gap-rigth" (click)="ResetForm()">Limpar</button>
+                <button type="submit" class="btn btn-success" [disabled]="!estudanteForm.valid">Salvar</button>
+            </div>
+        </div>
+    </div>
+</form>
