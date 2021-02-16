@@ -4,4 +4,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Porjeto em Angular 11 usando banco real-time do firebase com Reactive Forms.
+Projeto em Angular 11 usando banco real-time do firebase com Reactive Forms.
