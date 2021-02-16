@@ -1,5 +1,5 @@
 export interface Estudante {
-  $key: string;
+  $id: string;
   nome: string;
   sobrenome: string;
   email: string;

@@ -44,10 +44,10 @@ export class EditEstudanteComponent implements OnInit {
   }
   updateEstudanteData(){
     this.editForm = this.fb.group({
-      nome: ['', [ Validators.required, Validators.minLength(2)]],
+      nome: ['', [Validators.required, Validators.minLength(2)]],
       sobrenome: [''],
       email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-      telefone: ['', Validators.required, Validators.pattern('^[0-9]+$')]
+      telefone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
     })
   }
   goBack (){
