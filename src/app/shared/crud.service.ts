@@ -38,7 +38,7 @@ export class CrudService {
     })
   }
   DeleteEstudante(id: string){
-    this.estudanteRef = this.db.object('estudantes-lista/' +id);
+    this.estudanteRef = this.db.object('estudante-lista/' +id);
     this.estudanteRef.remove();
   }
 }
