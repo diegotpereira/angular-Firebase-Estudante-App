@@ -9,6 +9,10 @@ import { environment } from '../environments/environment';
 import { AddEstudanteComponent } from './add-estudante/add-estudante.component';
 import { EditEstudanteComponent } from './edit-estudante/edit-estudante.component';
 import { EstudanteListComponent } from './estudante-list/estudante-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,15 @@ import { EstudanteListComponent } from './estudante-list/estudante-list.componen
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

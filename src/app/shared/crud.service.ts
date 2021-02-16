@@ -25,6 +25,10 @@ export class CrudService {
     this.estudanteRef = this.db.object('estudante/lista/' + id);
     return this.estudanteRef;
   }
+  GetEstudanteList(){
+    this.estudantesRef = this.db.list('estudantes-lista');
+    return this.estudantesRef;
+  }
   UpdateEstudante(estudante: Estudante){
     this.estudanteRef.update({
       nome: estudante.nome,

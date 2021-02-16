@@ -6,14 +6,15 @@ import { EstudanteListComponent } from './estudante-list/estudante-list.componen
 import { EditEstudanteComponent } from './edit-estudante/edit-estudante.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'registro-estudante', pathMatch: 'full' },
-  { path: ' registro-estudante', component: EstudanteListComponent },
-  { path: ' view-estudantes', component: EstudanteListComponent },
+  { path: '', redirectTo: '/registro-estudante', pathMatch: 'full' },
+  { path: 'registro-estudante', component: AddEstudanteComponent },
+  { path: 'view-estudantes', component: EstudanteListComponent },
   { path: 'edit-estudante/:id', component: EditEstudanteComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  declarations: []
 })
 export class AppRoutingModule { }
