@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../shared/crud.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-estudante',
@@ -15,7 +16,8 @@ export class AddEstudanteComponent implements OnInit {
   constructor(
     public crudApi: CrudService,
     public fb: FormBuilder,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +51,7 @@ export class AddEstudanteComponent implements OnInit {
     this.crudApi.AddEStudante(this.estudanteForm.value);
     this.toastr.success(this.estudanteForm.controls['nome'].value + 'Sucesso ao cadastrar!');
     this.ResetForm();
+    this.router.navigate(['view-estudantes']);
   }
 
 
